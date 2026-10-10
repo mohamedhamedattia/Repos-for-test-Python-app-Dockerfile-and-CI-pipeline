@@ -16,9 +16,10 @@ jobs:
 
       - name: Run Trivy scanner
         uses: aquasecurity/trivy-action@master
+        env:
+          TRIVY_SKIP_UPDATE: "true"
         with:
           image-ref: 'python-app:latest'
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
-          skip-update: true
