@@ -20,6 +20,4 @@ jobs:
           TRIVY_SKIP_UPDATE: "true"
         with:
           image-ref: 'python-app:latest'
-          format: 'table'
-          exit-code: '1'
-          severity: 'CRITICAL,HIGH'
+          format

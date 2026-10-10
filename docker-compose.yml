@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  python-app:
+    build: .
+    container_name: python-app-container
+    restart: always
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.python-app.rule=Host(`app.example.com`)"
+      - "traefik.http.routers.python-app.entrypoints=web"
+      - "traefik.http.services.python-app.loadbalancer.server.port=5000"
+
+networks:
+  web:
+    external: true
